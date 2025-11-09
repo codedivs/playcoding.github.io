@@ -1,0 +1,205 @@
+/* Base Styles */
+* { 
+  box-sizing: border-box; 
+  font-family: 'Fira Code', monospace; 
+}
+
+body {
+  margin: 0;
+  padding: 30px;
+  color: #d1d5db;
+  background: radial-gradient(circle at 20% 20%, #0b0f19 0%, #02060f 100%);
+  background-attachment: fixed;
+  overflow-x: hidden;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Subtle animated glow */
+body::before {
+  content: "";
+  position: fixed;
+  top: -100px;
+  left: -100px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(0,255,200,0.15), transparent 60%);
+  animation: drift 10s infinite alternate ease-in-out;
+  z-index: 0;
+}
+
+@keyframes drift {
+  from { transform: translate(0,0); }
+  to { transform: translate(50px,50px); }
+}
+
+/* Buttons */
+button {
+  position: relative;
+  z-index: 2;
+  padding: 10px 24px;
+  margin: 0 8px;
+  font-size: 1em;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-weight: 600;
+  box-shadow: 0 0 10px rgba(20,255,236,0.4);
+}
+
+#cancel_btn { 
+  background: linear-gradient(90deg, #ff416c, #ff4b2b); 
+  color: #fff; 
+}
+#cancel_btn:hover { 
+  box-shadow: 0 0 15px #ff4b2b; 
+  transform: translateY(-2px); 
+}
+
+#start_btn { 
+  background: linear-gradient(90deg, #14ffec, #0d7377); 
+  color: #0b0f19; 
+}
+#start_btn:hover { 
+  box-shadow: 0 0 15px #14ffec; 
+  transform: translateY(-2px); 
+}
+
+#quit_btn { 
+  background: linear-gradient(90deg, #3a3a3a, #1f1f1f); 
+  color: #aaa; 
+}
+#quit_btn:hover { 
+  box-shadow: 0 0 15px #aaa; 
+  transform: translateY(-2px); 
+}
+
+#retry_btn { 
+  background: linear-gradient(90deg, #2196f3, #00bcd4); 
+  color: #fff; 
+}
+#retry_btn:hover { 
+  box-shadow: 0 0 15px #00bcd4; 
+  transform: translateY(-2px); 
+}
+
+/* Containers */
+#questions_division, 
+#answers_division, 
+#question_answers_division, 
+#start_screen, 
+#result {
+  position: relative;
+  z-index: 1;
+  margin: 25px 0;
+  padding: 20px;
+  border-radius: 10px;
+  background: rgba(18, 25, 38, 0.7);
+  box-shadow: 0 0 15px rgba(0, 255, 200, 0.05);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+#questions_division:hover, 
+#answers_division:hover, 
+#question_answers_division:hover {
+  box-shadow: 0 0 20px rgba(0, 255, 200, 0.15);
+}
+
+/* Question & Timer */
+#question_pad {
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #14ffec;
+}
+
+#timer {
+  margin-top: 8px;
+  font-size: 0.9em;
+  color: #888;
+}
+
+/* Answer Pads */
+#question_answers {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 70px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 2px dashed rgba(20,255,236,0.4);
+  background: rgba(12,18,28,0.6);
+  transition: border 0.3s ease;
+}
+
+#answer_pad {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  min-height: 70px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 2px dashed rgba(20,255,236,0.4);
+  background: rgba(12,18,28,0.6);
+  transition: border 0.3s ease;
+}
+
+#answer_pad:hover, 
+#question_answers:hover {
+  border-color: #14ffec;
+}
+
+/* Answer Blocks */
+.answer-block {
+  padding: 12px 16px;
+  background: rgba(20,255,236,0.1);
+  border: 1px solid rgba(20,255,236,0.4);
+  border-radius: 6px;
+  cursor: move;
+  user-select: none;
+  color: #e0f7fa;
+  transition: all 0.25s ease;
+}
+
+.answer-block:hover {
+  background: rgba(20,255,236,0.25);
+  box-shadow: 0 0 8px rgba(20,255,236,0.3);
+}
+
+.answer-block.dragging {
+  opacity: 0.5;
+  transform: scale(0.98);
+}
+
+/* Slots */
+.slot {
+  height: 55px;
+  background: rgba(20,255,236,0.05);
+  border: 2px dashed rgba(20,255,236,0.3);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  font-style: italic;
+}
+
+/* Results */
+#result h2 { 
+  color: #14ffec; 
+  margin-top: 0; 
+}
+
+/* Neon cursor glow */
+.cursor-glow {
+  position: fixed;
+  width: 40px; 
+  height: 40px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(20,255,236,0.25), transparent 70%);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: top 0.08s linear, left 0.08s linear;
+  z-index: 0;
+}

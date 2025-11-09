@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drag & Drop Quiz</title>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+  
+  <!-- External CSS -->
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div style="text-align:center; margin:15px 0;">
+    <button id="cancel_btn">Cancel & Restart</button>
+  </div>
+  
+  <div id="questions_division">
+    <div id="question_pad">Welcome! Click Start to begin.</div>
+    <div id="timer" style="display:none;">Time: 0s</div>
+  </div>
+  
+  <div id="question_answers_division">
+    <div id="question_answers"></div>
+  </div>
+  
+  <div id="answers_division">
+    <div id="answer_pad">Answer Pad</div>
+  </div>
+  
+  <div id="start_screen">
+    <button id="start_btn">Start Quiz</button>
+    <button id="quit_btn">Quit</button>
+  </div>
+  
+  <div id="result" style="display:none;">
+    <h2>Quiz Complete!</h2>
+    <p id="score"></p>
+    <p id="total_time"></p>
+    <button id="retry_btn">Retry Quiz</button>
+  </div>
+
+  <!-- External JS -->
+  <script src="trial.js"></script>
+
+  <!-- Neon cursor glow -->
+  <div class="cursor-glow"></div>
+
+  <script>
+    document.addEventListener('mousemove', e => {
+      const glow = document.querySelector('.cursor-glow');
+      glow.style.left = e.pageX + 'px';
+      glow.style.top = e.pageY + 'px';
+    });
+  </script>
+</body>
+</html>
