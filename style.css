@@ -1,0 +1,53 @@
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px}
+body{margin:0;padding:15px 10px;min-height:100vh;font-family:'Fira Code',monospace;color:#d1d5db;
+  background:radial-gradient(circle at 20% 20%,#0b0f19 0%,#02060f 100%);background-attachment:fixed;overflow-x:hidden}
+body::before{content:"";position:fixed;top:-100px;left:-100px;width:400px;height:400px;
+  background:radial-gradient(circle,rgba(0,255,200,0.15),transparent 60%);animation:drift 12s infinite alternate;z-index:0}
+@keyframes drift{from{transform:translate(0,0)}to{transform:translate(60px,60px)}}
+.container{max-width:800px;margin:0 auto;position:relative;z-index:1}
+.section{margin:18px 0;padding:18px;border-radius:12px;background:rgba(18,25,38,0.75);backdrop-filter:blur(12px);
+  box-shadow:0 0 20px rgba(0,255,200,0.08);transition:all .3s}
+.section:hover{box-shadow:0 0 25px rgba(0,255,200,0.18)}
+button{padding:12px 22px;margin:6px;font-size:1rem;font-weight:600;border:none;border-radius:8px;cursor:pointer;
+  transition:all .25s;box-shadow:0 0 12px rgba(20,255,236,0.4);position:relative;z-index:2}
+button:hover{transform:translateY(-2px)}
+#cancel_btn{background:linear-gradient(90deg,#ff416c,#ff4b2b);color:#fff}
+#cancel_btn:hover{box-shadow:0 0 18px #ff4b2b}
+#start_btn{background:linear-gradient(90deg,#14ffec,#0d7377);color:#0b0f19}
+#start_btn:hover{box-shadow:0 0 18px #14ffec}
+#quit_btn{background:linear-gradient(90deg,#3a3a3a,#1f1f1f);color:#ccc}
+#quit_btn:hover{box-shadow:0 0 18px #aaa}
+#retry_btn{background:linear-gradient(90deg,#2196f3,#00bcd4);color:#fff}
+#retry_btn:hover{box-shadow:0 0 18px #00bcd4}
+#question_pad{font-size:1.2rem;font-weight:600;color:#14ffec;margin-bottom:6px}
+#timer{font-size:0.95rem;color:#8b9bb4}
+#answer_pad {
+  display: flex; flex-wrap: wrap; gap: 12px; min-height: 80px; padding: 14px;
+  border: 2px dashed rgba(20,255,236,0.4); border-radius: 10px; background: rgba(12,18,28,0.7); transition: border .3s;
+}
+#question_answers {
+  display: flex; flex-direction: column; gap: 14px; align-items: flex-start;
+  min-height: 80px; padding: 14px; border: 2px dashed rgba(20,255,236,0.4);
+  border-radius: 10px; background: rgba(12,18,28,0.7); transition: border .3s;
+}
+#answer_pad:hover,#question_answers:hover{border-color:#14ffec}
+.answer-block{padding:14px 18px;background:rgba(20,255,236,0.12);color:#e0f7fa;border:1px solid rgba(20,255,236,0.5);
+  border-radius:8px;cursor:grab;user-select:none;transition:all .25s;font-family:'Fira Code',monospace}
+.answer-block:hover{background:rgba(20,255,236,0.28);box-shadow:0 0 10px rgba(20,255,236,0.35)}
+.answer-block.dragging{opacity:0.4;transform:scale(0.96);cursor:grabbing}
+.slot{flex:1 1 120px;min-height:60px;background:rgba(20,255,236,0.06);border:2px dashed rgba(20,255,236,0.35);
+  border-radius:8px;display:flex;align-items:center;justify-content:center;color:#666;font-style:italic;font-size:0.9rem}
+#result h2{color:#14ffec;margin-bottom:12px}
+#result p{margin:8px 0;font-size:1.1rem}
+.adsense-footer{margin:30px auto;text-align:center;max-width:728px;padding:15px;border-radius:10px;
+  background:rgba(255,255,255,0.05);backdrop-filter:blur(8px)}
+.cursor-glow{position:fixed;width:40px;height:40px;border-radius:50%;background:radial-gradient(circle,rgba(20,255,236,0.28),transparent 70%);
+  pointer-events:none;transform:translate(-50%,-50%);transition:top .08s linear,left .08s linear;z-index:0}
+@keyframes shake{0%,100%{transform:translateX(0)}10%,30%,50%,70%,90%{transform:translateX(-6px)}20%,40%,60%,80%{transform:translateX(6px)}}
+.shake{animation:shake .5s}
+@media(max-width:600px){
+  body{padding:12px 8px}button{padding:11px 16px;font-size:0.95rem;margin:5px 3px}
+  #question_pad{font-size:1.1rem}.answer-block{padding:11px 13px;font-size:0.9rem}
+  .slot{min-height:56px;font-size:0.85rem}
+}
