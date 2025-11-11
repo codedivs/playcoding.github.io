@@ -12,7 +12,6 @@
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="en_US" />
   <title>Python Drag & Drop Quiz – 20 Random Questions</title>
-
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
   {
@@ -26,7 +25,6 @@
     "publisher": {"@type": "Organization", "name": "Global Code Quiz"}
   }
   </script>
-
   <!-- Fonts & CSS -->
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
@@ -56,6 +54,12 @@
       <p id="total_time"></p>
       <button id="retry_btn">Play Again (New Set)</button>
     </div>
+
+    <!-- Copyright Notice -->
+    <div style="text-align:center; margin: 20px 0; font-size: 0.85rem; color: #555;">
+      &copy; <span id="current_year">2025</span> <strong>Global Code Quiz</strong>. All rights reserved.
+    </div>
+
     <!-- AdSense -->
     <div class="adsense-footer">
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
@@ -71,6 +75,11 @@
     </div>
   </div>
   <div class="cursor-glow"></div>
+
+  <!-- Auto-update current year -->
+  <script>
+    document.getElementById('current_year').textContent = new Date().getFullYear();
+  </script>
 
   <!-- JavaScript -->
   <script src="script.js"></script>
