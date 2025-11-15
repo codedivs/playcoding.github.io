@@ -3,13 +3,13 @@
     {
       "question": "Define a function in Python that returns a + b",
       "answer_divs": 2,
-      "answers": ["def add(a, b):", "function add(a ,b):", "return a + b;", "return a + b", "returns (a ,b)"],
+      "answers": ["def add(a, b):", "int add(a ,b):", "return a + b;", "return a + b", "returns (a ,b)"],
       "correct_order": [0, 3]
     },
     {
-      "question": "Write a Python function that returns the sum of squares of two numbers a and b",
+      "question": "a Python function that returns the sum of squares of two numbers a and b",
       "answer_divs": 2,
-      "answers": ["function sum_squares(a, b):", "def squares_sum(a, b):", "return a**2 + b**2", "return (a + b)**2", "print(a**2 + b**2)"],
+      "answers": ["fun sum_squares(a, b):", "def squares_sum(a, b):", "return a**2 + b**2", "return (a + b)**2", "print(a**2 + b**2)"],
       "correct_order": [1, 2]
     },
     {
